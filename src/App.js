@@ -1,31 +1,13 @@
-import 'react-devtools';
-import { Navbar } from 'reactstrap';
-import { NavbarBrand } from 'reactstrap';
-import MenuComponent from './components/MenuComponent';
-import {DISHES} from './shared/dishes.js';
+import React, { Component } from 'react'
+import MainComponent from './components/MainComponent'
 import './App.css';
-import { Component } from 'react/cjs/react.production.min';
 
-class App extends Component {
-  constructor(props){
-    super(props);
-    this.state={
-      dishes:DISHES
-    }
-  }
-
-  render(){
+export default class App extends Component {
+  render() {
     return (
       <div>
-          <Navbar dark color="dark">
-          <div className="container">
-              <NavbarBrand href="#">Coursera Application</NavbarBrand>
-          </div>
-          </Navbar>
-          <MenuComponent dishes={this.state.dishes}/>
+        <MainComponent/>
       </div>
-    );
+    )
   }
 }
-
-export default App;

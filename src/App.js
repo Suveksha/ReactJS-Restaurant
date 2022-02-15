@@ -1,25 +1,31 @@
-import logo from './logo.svg';
+import 'react-devtools';
+import { Navbar } from 'reactstrap';
+import { NavbarBrand } from 'reactstrap';
+import MenuComponent from './components/MenuComponent';
+import {DISHES} from './shared/dishes.js';
 import './App.css';
+import { Component } from 'react/cjs/react.production.min';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      dishes:DISHES
+    }
+  }
+
+  render(){
+    return (
+      <div>
+          <Navbar dark color="dark">
+          <div className="container">
+              <NavbarBrand href="#">Coursera Application</NavbarBrand>
+          </div>
+          </Navbar>
+          <MenuComponent dishes={this.state.dishes}/>
+      </div>
+    );
+  }
 }
 
 export default App;
